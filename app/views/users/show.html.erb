@@ -1,13 +1,31 @@
-
-<%= render 'books/newform',  user: @user, book: @book %>
-
-<h3>Books</h3>
-<% @books.each do |book| %>
-<div>
-  <%= image_tag book.user.get_profile_image(100,100) %>
-  <p><strong>Title</strong></p>
-  <span><%= book.title %></span>
-  <p><strong>Opinion</strong></p>
-  <span><%= book.body %></span>
-</div>
-<% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/newform',  user: @user, book: @book %>
+    </div>
+    
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th><p><strong>Title</strong></p></th>
+            <th><p><strong>Opinion</strong></p></th>
+          </tr>
+        </thead>
+        <% @books.each do |book| %>
+        <tbody>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+          
+            <td><%= link_to book.title, book_path(book) %></td>
+          
+            <td><%= book.body %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>  
+</div>  

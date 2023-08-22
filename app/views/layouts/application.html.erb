@@ -76,9 +76,13 @@
         </div>
       </nav>
     </header>
-
+    
+    <div>
+      <%= flash[:notice] %>
+    </div>
     <%= yield %>
   </body>
+  
   <footer>
     <div class="container mt-5">
       <div class="row">
@@ -88,4 +92,5 @@
       </div>
     </div>
   </footer>
+  
 </html>
